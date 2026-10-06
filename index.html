@@ -16,5 +16,181 @@
 
   <body>
     <div id="root"></div>
+
+    <!-- ================= START: AI CHATBOT WIDGET ================= -->
+    <div id="ai-chat-widget">
+      <button id="ai-chat-btn" onclick="toggleChatWindow()" title="Chat with Mehmet's AI Assistant">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </button>
+    
+      <div id="ai-chat-container">
+        <div id="ai-chat-header">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="display:inline-block; width:10px; height:10px; background:#10b981; border-radius:50%;"></span>
+            <span>Mehmet's AI Assistant</span>
+          </div>
+          <button onclick="toggleChatWindow()" style="background:none; border:none; color:#fff; font-size:18px; cursor:pointer;">&times;</button>
+        </div>
+    
+        <div id="ai-chat-messages">
+          <div class="ai-msg bot">
+            Hello! I am Mehmet Magden's portfolio assistant. Feel free to ask about his skills, projects, or background!
+          </div>
+        </div>
+    
+        <div id="ai-chat-input-area">
+          <input type="text" id="ai-user-input" placeholder="Ask a question..." onkeypress="handleKeyPress(event)" />
+          <button onclick="sendChatMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      #ai-chat-widget {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 99999;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      #ai-chat-btn {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #2563eb;
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+      }
+      #ai-chat-btn:hover {
+        transform: scale(1.05);
+      }
+      #ai-chat-container {
+        display: none;
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        width: 360px;
+        max-width: 90vw;
+        height: 480px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+        overflow: hidden;
+        flex-direction: column;
+        border: 1px solid #e2e8f0;
+      }
+      #ai-chat-header {
+        background: #1e293b;
+        color: #fff;
+        padding: 14px 16px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #ai-chat-messages {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: #f8fafc;
+      }
+      .ai-msg {
+        max-width: 80%;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .ai-msg.bot {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        align-self: flex-start;
+        color: #1e293b;
+      }
+      .ai-msg.user {
+        background: #2563eb;
+        color: white;
+        align-self: flex-end;
+      }
+      #ai-chat-input-area {
+        display: flex;
+        padding: 12px;
+        background: #ffffff;
+        border-top: 1px solid #e2e8f0;
+        gap: 8px;
+      }
+      #ai-user-input {
+        flex: 1;
+        border: 1px solid #cbd5e1;
+        padding: 8px 12px;
+        border-radius: 6px;
+        outline: none;
+        font-size: 14px;
+      }
+      #ai-chat-input-area button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+    </style>
+    
+    <script>
+      // Render'dan aldığın URL'nin sonuna /chat ekle:
+      const API_URL = "https://aimaden-ai-service.onrender.com/chat";
+    
+      function toggleChatWindow() {
+        const container = document.getElementById("ai-chat-container");
+        container.style.display = container.style.display === "flex" ? "none" : "flex";
+      }
+    
+      function handleKeyPress(e) {
+        if (e.key === "Enter") sendChatMessage();
+      }
+    
+      async function sendChatMessage() {
+        const input = document.getElementById("ai-user-input");
+        const msg = input.value.trim();
+        if (!msg) return;
+    
+        const chatMessages = document.getElementById("ai-chat-messages");
+    
+        chatMessages.innerHTML += `<div class="ai-msg user">${msg}</div>`;
+        input.value = "";
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+        const loadingId = "loading-" + Date.now();
+        chatMessages.innerHTML += `<div class="ai-msg bot" id="${loadingId}">...</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+        try {
+          const res = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: msg })
+          });
+          const data = await res.json();
+          document.getElementById(loadingId).innerText = data.reply || data.error || "No response.";
+        } catch (err) {
+          document.getElementById(loadingId).innerText = "Connection error. Please try again.";
+        }
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    </script>
+    <!-- ================= END: AI CHATBOT WIDGET ================= -->
   </body>
 </html>
