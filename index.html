@@ -177,7 +177,7 @@
         chatMessages.scrollTop = chatMessages.scrollHeight;
     
         const loadingId = "loading-" + Date.now();
-        chatMessages.innerHTML += `<div class="ai-msg bot" id="${loadingId}">...</div>`;
+        chatMessages.innerHTML += `<div class="ai-msg bot" id="${loadingId}">Thinking... (Waking up server if idle)</div>`;
         chatMessages.scrollTop = chatMessages.scrollHeight;
     
         try {
