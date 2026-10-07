@@ -17,6 +17,216 @@
   <body>
     <div id="root"></div>
 
+    <!-- ================= START: FEATURED AI PROJECTS SECTION ================= -->
+        <section id="ai-showcase-section">
+          <div class="ai-showcase-container">
+            <div class="ai-section-badge">✨ Live AI Implementations</div>
+            <h2 class="ai-section-title">Featured AI Engineering Projects</h2>
+            <p class="ai-section-subtitle">
+              End-to-end applied GenAI architectures integrating Speech-to-Text pipelines, LLM reasoning, and cloud deployment.
+            </p>
+    
+            <div class="ai-cards-grid">
+              <!-- Project 1: Meeting Companion -->
+              <div class="ai-card">
+                <div class="ai-card-header">
+                  <span class="ai-tag">Speech-to-Text · GenAI</span>
+                  <span class="ai-status">Live GPU</span>
+                </div>
+                <h3>🎙️ Business AI Meeting Companion</h3>
+                <p>
+                  An automated pipeline transcribing recorded business discussions via <strong>OpenAI Whisper</strong> and synthesizing actionable executive summaries, key decisions, and follow-ups with <strong>Google Gemini</strong>.
+                </p>
+                <div class="ai-stack-list">
+                  <span>OpenAI Whisper</span>
+                  <span>Google Gemini</span>
+                  <span>Gradio</span>
+                  <span>HF Spaces (ZeroGPU)</span>
+                  <span>Python</span>
+                </div>
+                <div class="ai-card-actions">
+                  <button onclick="openMeetingModal()" class="ai-btn ai-btn-primary">
+                    ▶ Launch Demo
+                  </button>
+                  <a href="https://huggingface.co/spaces/WowMaker/meeting-audio-summarizer" target="_blank" class="ai-btn ai-btn-outline">
+                    HF Space ↗
+                  </a>
+                  <a href="https://github.com/MehmetMagden/meeting-audio-summarizer" target="_blank" class="ai-btn ai-btn-outline">
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+    
+              <!-- Project 2: AI Assistant -->
+              <div class="ai-card">
+                <div class="ai-card-header">
+                  <span class="ai-tag">Full-Stack GenAI · Cloud</span>
+                  <span class="ai-status">Active Service</span>
+                </div>
+                <h3>🤖 Context-Aware Portfolio Assistant</h3>
+                <p>
+                  A specialized conversational AI agent trained on personal QA/DevOps competencies and engineering background. Deployed as an autonomous microservice with spin-up optimization.
+                </p>
+                <div class="ai-stack-list">
+                  <span>Google Gemini API</span>
+                  <span>Python / Flask</span>
+                  <span>REST API</span>
+                  <span>Cloud Microservice</span>
+                  <span>JavaScript</span>
+                </div>
+                <div class="ai-card-actions">
+                  <button onclick="toggleChatWindow()" class="ai-btn ai-btn-primary">
+                    💬 Open Chatbot
+                  </button>
+                  <a href="https://aimaden-ai-service.onrender.com" target="_blank" class="ai-btn ai-btn-outline">
+                    Service API ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <style>
+          /* --- Featured AI Showcase Styles --- */
+          #ai-showcase-section {
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(30, 41, 59, 0.4) 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #f8fafc;
+          }
+          .ai-showcase-container {
+            max-width: 1100px;
+            margin: 0 auto;
+          }
+          .ai-section-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            margin-bottom: 12px;
+          }
+          .ai-section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+          }
+          .ai-section-subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+            max-width: 650px;
+            line-height: 1.5;
+            margin: 0 0 36px 0;
+          }
+          .ai-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+          }
+          .ai-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+          }
+          .ai-card:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+          }
+          .ai-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+          }
+          .ai-tag {
+            font-size: 12px;
+            font-weight: 600;
+            color: #94a3b8;
+          }
+          .ai-status {
+            font-size: 11px;
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            padding: 2px 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+          }
+          .ai-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            color: #ffffff;
+          }
+          .ai-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+          }
+          .ai-stack-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+          }
+          .ai-stack-list span {
+            font-size: 12px;
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #1e293b;
+          }
+          .ai-card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+          }
+          .ai-btn {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s;
+            border: none;
+          }
+          .ai-btn-primary {
+            background: #2563eb;
+            color: #ffffff;
+          }
+          .ai-btn-primary:hover {
+            background: #1d4ed8;
+          }
+          .ai-btn-outline {
+            background: transparent;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+          }
+          .ai-btn-outline:hover {
+            border-color: #38bdf8;
+            color: #ffffff;
+          }
+        </style>
+        <!-- ================= END: FEATURED AI PROJECTS SECTION ================= -->    
+
     <!-- ================= START: AI MEETING COMPANION MODAL ================= -->
     <div id="meeting-modal-backdrop" onclick="handleBackdropClick(event)">
       <div id="meeting-modal-content">
