@@ -294,33 +294,29 @@
     <script>
       // --- Meeting Modal Mantığı (Lazy Load ile hız tasarrufu) ---
       function openMeetingModal() {
-        const modal = document.getElementById("meeting-modal-backdrop");
-        modal.style.display = "flex";
-      }
-        
-        // Iframe'i sadece modal ilk kez tıklandığında yükler (sayfa açılışını yavaşlatmaz)
-        if (!iframe.src || iframe.src === "about:blank") {
-          iframe.src = iframe.getAttribute("data-src");
-        }
-        
-        modal.style.display = "flex";
-      }
-
-      function closeMeetingModal() {
-        const modal = document.getElementById("meeting-modal-backdrop");
-        modal.style.display = "none";
-      }
-
-      function handleBackdropClick(e) {
-        if (e.target.id === "meeting-modal-backdrop") {
-          closeMeetingModal();
-        }
-      }
-
-      // Escape tuşuna basınca modalı kapat
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMeetingModal();
-      });
+              const modal = document.getElementById("meeting-modal-backdrop");
+              if (modal) {
+                modal.style.display = "flex";
+              }
+            }
+      
+            function closeMeetingModal() {
+              const modal = document.getElementById("meeting-modal-backdrop");
+              if (modal) {
+                modal.style.display = "none";
+              }
+            }
+      
+            function handleBackdropClick(e) {
+              if (e.target.id === "meeting-modal-backdrop") {
+                closeMeetingModal();
+              }
+            }
+      
+            // Escape tuşuna basınca modalı kapat
+            document.addEventListener("keydown", (e) => {
+              if (e.key === "Escape") closeMeetingModal();
+            });
 
       // --- AI Chatbot Mantığı ---
       const API_URL = "https://aimaden-ai-service.onrender.com/chat";
