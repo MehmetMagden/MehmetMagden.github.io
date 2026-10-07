@@ -295,7 +295,8 @@
       // --- Meeting Modal Mantığı (Lazy Load ile hız tasarrufu) ---
       function openMeetingModal() {
         const modal = document.getElementById("meeting-modal-backdrop");
-        const iframe = document.getElementById("meeting-iframe");
+        modal.style.display = "flex";
+      }
         
         // Iframe'i sadece modal ilk kez tıklandığında yükler (sayfa açılışını yavaşlatmaz)
         if (!iframe.src || iframe.src === "about:blank") {
@@ -306,7 +307,8 @@
       }
 
       function closeMeetingModal() {
-        document.getElementById("meeting-modal-backdrop").style.display = "none";
+        const modal = document.getElementById("meeting-modal-backdrop");
+        modal.style.display = "none";
       }
 
       function handleBackdropClick(e) {
