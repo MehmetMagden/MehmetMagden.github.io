@@ -27,6 +27,39 @@
             </p>
     
             <div class="ai-cards-grid">
+
+              <!-- Project 3: Infinity Pipeline -->
+              <div class="ai-card">
+                <div class="ai-card-header">
+                  <span class="ai-tag">DevOps · Cloud-Native · K8s</span>
+                  <span class="ai-status" style="color: #38bdf8; background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3);">4-Node Cluster</span>
+                </div>
+                <h3>☸️ Infinity Pipeline (SwissTask API)</h3>
+                <p>
+                  A production-grade, bare-metal Kubernetes lab provisioned with <strong>Ansible</strong>. Features automated GitOps CI/CD with security gates (Trivy, Bandit), PostgreSQL StatefulSets, and zero-downtime rolling updates.
+                </p>
+                <div class="ai-stack-list">
+                  <span>Kubernetes v1.28</span>
+                  <span>Ansible</span>
+                  <span>GitHub Actions</span>
+                  <span>Docker</span>
+                  <span>DevSecOps</span>
+                  <span>PostgreSQL</span>
+                </div>
+                <div class="ai-card-actions">
+                  <button onclick="openPipelineModal()" class="ai-btn ai-btn-primary">
+                    📄 View Architecture
+                  </button>
+                  <a href="/infinity-pipeline.html" target="_blank" class="ai-btn ai-btn-outline" title="Open Full Page in New Tab">
+                    Full Page ↗
+                  </a>
+                  <a href="https://github.com/MehmetMagden/infinity-pipeline" target="_blank" class="ai-btn ai-btn-outline">
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+
+              
               <!-- Project 1: Meeting Companion -->
               <div class="ai-card">
                 <div class="ai-card-header">
@@ -249,6 +282,31 @@
         </div>
       </div>
     </div>
+
+    <!-- ================= START: INFINITY PIPELINE MODAL ================= -->
+    <div id="pipeline-modal-backdrop" onclick="handlePipelineBackdropClick(event)">
+      <div id="meeting-modal-content" style="max-width: 1050px; height: 90vh;">
+        <div id="meeting-modal-header">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span>☸️</span>
+            <strong>Infinity Pipeline: Engineering Architecture & Deep-Dive Report</strong>
+            <span style="font-size:11px; background:#0284c7; color:#fff; padding:2px 8px; border-radius:12px;">Case Study</span>
+          </div>
+          <button onclick="closePipelineModal()" title="Close">&times;</button>
+        </div>
+        
+        <div id="meeting-modal-body">
+          <iframe
+            id="pipeline-iframe"
+            src="/infinity-pipeline.html"
+            frameborder="0"
+            style="width: 100%; height: 100%; border: none;"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <!-- ================= END: INFINITY PIPELINE MODAL ================= -->
+    
 
     <!-- Floating Trigger Button for Meeting Companion -->
     <button id="meeting-launch-btn" onclick="openMeetingModal()" title="Try Meeting Companion Demo">
@@ -510,6 +568,33 @@
           modal.style.display = "none";
         }
       }
+
+      // --- Infinity Pipeline Modal Mantığı ---
+      function openPipelineModal() {
+        const modal = document.getElementById("pipeline-modal-backdrop");
+        if (modal) modal.style.display = "flex";
+      }
+
+      function closePipelineModal() {
+        const modal = document.getElementById("pipeline-modal-backdrop");
+        if (modal) modal.style.display = "none";
+      }
+
+      function handlePipelineBackdropClick(e) {
+        if (e.target.id === "pipeline-modal-backdrop") {
+          closePipelineModal();
+        }
+      }
+
+      // ESC tuşuyla kapatmayı güncelleme
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeMeetingModal();
+          closePipelineModal();
+        }
+      });
+
+      
 
       function handleBackdropClick(e) {
         if (e.target.id === "meeting-modal-backdrop") {
