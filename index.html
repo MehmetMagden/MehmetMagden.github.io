@@ -561,6 +561,28 @@
         }
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }
+
+
+    // React DOM'u oluşturduktan sonra AI Showcase'i doğrudan Projects bölümünün altına bağlar
+    window.addEventListener("DOMContentLoaded", () => {
+      const checkReactRender = setInterval(() => {
+        // React projenizdeki projeler alanını tespit eder (genelde id veya section olarak bulunur)
+        const projectsSection = document.getElementById("projects") || document.querySelector('section[id*="project"]');
+        const aiShowcase = document.getElementById("ai-showcase-section");
+    
+        if (projectsSection && aiShowcase) {
+          // AI bölümünü React'in Projeler bölümünün hemen ardına taşır
+          projectsSection.insertAdjacentElement("afterend", aiShowcase);
+          clearInterval(checkReactRender);
+        }
+      }, 100);
+    
+      // 5 saniye sonra aramayı durdurur (kaynak tasarrufu)
+      setTimeout(() => clearInterval(checkReactRender), 5000);
+    });      
+
+
+      
     </script>
   </body>
 </html>
