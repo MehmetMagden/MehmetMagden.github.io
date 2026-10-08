@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity-Pipeline: Detailed Project Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+            padding: 20px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .header .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .header .contact {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        .header a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .section h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .section ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        table th {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #bdc3c7;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Code blocks */
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #2c3e50;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 4px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #2c3e50;
+        }
+
+        /* Blockquotes / Special boxes */
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #34495e;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .challenge-box {
+            background-color: #fff9e6;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .challenge-box strong {
+            color: #d68910;
+        }
+
+        /* Diagram-like structure */
+        .diagram {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            white-space: pre;
+            overflow-x: auto;
+            color: #2c3e50;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #ecf0f1;
+            font-size: 12px;
+            color: #7f8c8d;
+            text-align: center;
+        }
+
+        /* Page break for PDF */
+        @media print {
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .footer {
+                page-break-before: always;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header .meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .section h2 {
+                font-size: 18px;
+            }
+
+            pre, .diagram {
+                font-size: 11px;
+                overflow-x: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>INFINITY-PIPELINE</h1>
+            <div class="subtitle">Detailed Project Portfolio</div>
+            <div class="meta">
+                <div class="contact">
+                    Mehmet Magden | 
+                    <a href="mailto:mehmetmagden.it@gmail.com">Email</a> | 
+                    <a href="https://github.com/MehmetMagden/infinity-pipeline" target="_blank">GitHub</a> | 
+                    <a href="https://linkedin.com/in/mehmetmagden" target="_blank">LinkedIn</a> | 
+                    +41 76 680 00 53
+                </div>
+                <div>Bern, Switzerland | May 2026</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>1. Introduction</h2>
+            
+            <p>Infinity-Pipeline is a Kubernetes laboratory project I developed between March and May 2026 to acquire deep expertise in DevOps and Cloud-Native infrastructure. The project demonstrates the practical implementation of modern system administration: automating a complete cluster from scratch, ensuring scalability, and deploying it into a production-ready state.</p>
+            
+            <h3>Project Scope</h3>
+            <p>A local Kubernetes system comprising one master and three worker nodes, fully automated with Ansible, orchestrated by Kubernetes, and running a Python Flask application (SwissTask) backed by PostgreSQL.</p>
+
+            <h3>Development Environment</h3>
+            <ul>
+                <li><strong>Hardware:</strong> Intel Core i5-9500, 32GB RAM, NVIDIA RTX 3060 12GB</li>
+                <li><strong>Infrastructure:</strong> Four Ubuntu 22.04 LTS VMs, managed via Vagrant and VirtualBox</li>
+                <li><strong>Development:</strong> 31 Git commits over a two-month period</li>
+            </ul>
+
+            <h3>Transparency Note: AI-Assisted Development</h3>
+            <p>Modern software engineering demands maximum efficiency. In this project, generative AI was leveraged as a "pair-programming" partner. While AI assisted with troubleshooting, generating boilerplate code, and syntax optimization, the architectural decisions, Infrastructure as Code (IaC) design, DevSecOps concepts, and final code responsibility remained entirely mine. This reflects my real-world workflow: utilizing modern tools efficiently without relinquishing architectural control.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Technical Architecture</h2>
+
+            <h3>2.1 Cluster Topology</h3>
+            <p>The project consists of four virtual machines, all based on Ubuntu 22.04 LTS:</p>
+            
+            <div class="diagram">Kubernetes Cluster (192.168.56.0/24)
+├── Master Node (k8s-master, 192.168.56.10)
+│   └── Control Plane: API Server, etcd, Scheduler
+└── Worker Nodes (3x)
+    ├── k8s-w1 (192.168.56.11)
+    ├── k8s-w2 (192.168.56.12)
+    └── k8s-w3 (192.168.56.13)
+
+Network: Flannel CNI
+Container Runtime: Containerd
+Kubernetes Version: v1.28</div>
+
+            <h3>2.2 Application Stack & DevSecOps</h3>
+            <p>The SwissTask application integrates industry-standard DevOps and security practices:</p>
+            
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th>Technology</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td><strong>API & Validation</strong></td>
+                    <td>Flask, Pydantic</td>
+                    <td>CRUD endpoints with strict payload validation against SQL Injection</td>
+                </tr>
+                <tr>
+                    <td><strong>API Documentation</strong></td>
+                    <td>Flasgger (Swagger)</td>
+                    <td>Auto-generated, interactive OpenAPI 3.0 specification</td>
+                </tr>
+                <tr>
+                    <td><strong>Security Scans</strong></td>
+                    <td>Trivy, Bandit</td>
+                    <td>SAST (Static Application Security Testing) & Container Vulnerability Scanning</td>
+                </tr>
+                <tr>
+                    <td><strong>Database</strong></td>
+                    <td>PostgreSQL 15</td>
+                    <td>StatefulSet with Persistent Volume</td>
+                </tr>
+                <tr>
+                    <td><strong>Authentication</strong></td>
+                    <td>Kubernetes Secrets</td>
+                    <td>Base64-encoded DB credentials</td>
+                </tr>
+                <tr>
+                    <td><strong>Network Access</strong></td>
+                    <td>Cloudflare Tunnel</td>
+                    <td>Secure external connection ("Zero-Trust") without open router ports</td>
+                </tr>
+                <tr>
+                    <td><strong>Monitoring</strong></td>
+                    <td>Prometheus + Grafana</td>
+                    <td>Real-time metrics and visualization</td>
+                </tr>
+            </table>
+
+            <h3>2.3 Infrastructure as Code</h3>
+            <p>All system components are automated via Ansible. The playbooks execute in a deterministic sequence:</p>
+            <ul>
+                <li><strong>01_base_setup.yml</strong> – Kernel modules tuning, disable swap</li>
+                <li><strong>01_2_hostname_fix.yml</strong> – Set node hostnames</li>
+                <li><strong>01_5_network_fix.yml</strong> – Enable IPv4 Forwarding</li>
+                <li><strong>01_8_containerd_fix.yml</strong> – Configure Containerd</li>
+                <li><strong>02_install_k8s.yml</strong> – Install kubelet, kubeadm, kubectl</li>
+                <li><strong>03_master_init.yml</strong> – Initialize master node, deploy Flannel CNI</li>
+                <li><strong>04_workers_join.yml</strong> – Auto-join worker nodes to the cluster</li>
+                <li><strong>05_deploy_swisstask.yml</strong> – Deploy SwissTask API + PostgreSQL manifests</li>
+                <li><strong>06_deploy_monitoring.yml</strong> – Deploy Prometheus and Grafana via Helm</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>3. Deployment &amp; Automation</h2>
+
+            <h3>3.1 DevSecOps CI/CD Pipeline</h3>
+            <p>A push to the <code>main</code> branch triggers the GitHub Actions pipeline, which incorporates built-in security gates:</p>
+            
+            <div class="diagram">Push → Security Gates → Test → Build & Scan → Push to Docker Hub → Deploy
+  ↓          ↓            ↓          ↓              ↓                ↓
+ Code  Bandit/Flake8   pytest   Docker/Trivy   Git SHA Tag      kubectl rollout
+        (SAST/Lint)   (SQLite) (Vuln. Check)  (Immutable)       (Rolling Update)</div>
+
+            <p><strong>Key Feature:</strong> Images are not tagged with <code>:latest</code>, but rather with the unique Git Commit-SHA. This effectively prevents image caching issues and ensures deployments are 100% reproducible.</p>
+
+            <h3>3.2 Rolling Updates</h3>
+            <p>New versions are deployed via Kubernetes Rolling Updates to ensure high availability:</p>
+            <ul>
+                <li>New pods are initialized with the updated image.</li>
+                <li>Health Checks (Liveness &amp; Readiness Probes) verify readiness.</li>
+                <li>Old pods are gracefully terminated only after the new pods are fully operational.</li>
+                <li>Result: Zero-Downtime Deployments.</li>
+            </ul>
+
+            <h3>3.3 Self-Healing Mechanisms</h3>
+            <p>Kubernetes autonomously monitors and maintains cluster health:</p>
+            <ul>
+                <li><strong>Pod Failures:</strong> If a pod crashes, the Kubelet automatically restarts it.</li>
+                <li><strong>Node Failures:</strong> If a node becomes unresponsive, its pods are evicted and rescheduled on healthy nodes.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. Engineering Challenges &amp; Solutions</h2>
+
+            <h3>4.1 Kubelet Health-Check Collision (CrashLoopBackOff)</h3>
+            
+            <div class="challenge-box">
+                <strong>Problem:</strong> To protect against DDoS attacks, the API was secured with a strict rate limiter (50 requests/hour). The internal Kubernetes Kubelet service, which executes Liveness and Readiness probes every 10 seconds, quickly exceeded this limit, receiving HTTP 429 (Too Many Requests) errors. Consequently, Kubernetes falsely flagged completely healthy pods as "failing" and continuously terminated them, causing a severe CrashLoopBackOff.
+            </div>
+
+            <p><strong>Root Cause:</strong> The rate limiter failed to distinguish internal cluster health-check traffic from external, potentially malicious requests.</p>
+
+            <p><strong>Solution:</strong> Analyzed the internal traffic routing and implemented targeted <code>@limiter.exempt</code> decorators explicitly for the internal probes:</p>
+            
+            <pre>@app.route('/health', methods=['GET'])
+@limiter.exempt
+def health_check():
+    """Kubernetes liveness probe bypasses rate limits"""
+    # ...</pre>
+
+            <p><strong>Result:</strong> Internal K8s monitoring functions seamlessly (0 Restarts), while all external API endpoints remain strictly protected against DDoS abuse.</p>
+
+            <h3>4.2 Kubernetes Swap Issue</h3>
+            
+            <div class="challenge-box">
+                <strong>Problem:</strong> Worker nodes failed to start pods, returning the error: "cannot run on a system with swap enabled".
+            </div>
+
+            <p><strong>Root Cause:</strong> Kubernetes does not operate stably when Linux Swap is enabled, as the Kubelet service terminates itself to preserve memory allocation accuracy.</p>
+
+            <p><strong>Solution:</strong> Permanently disabled swap across all nodes via Ansible automation:</p>
+            
+            <pre>- name: Disable swap
+  shell: swapoff -a
+- name: Remove from fstab
+  lineinfile:
+    path: /etc/fstab
+    regexp: "^.* swap"
+    state: absent</pre>
+
+            <p><strong>Result:</strong> The cluster operates stably, and pods are scheduled reliably.</p>
+
+            <h3>4.3 Docker Image Caching</h3>
+            
+            <div class="challenge-box">
+                <strong>Problem:</strong> Following a successful CI/CD image rebuild, newly spawned pods continued executing the old application code.
+            </div>
+
+            <p><strong>Solution:</strong> Transitioned to an "Immutable Tags" strategy. Images are now strictly tagged with the unique Git Commit-SHA:</p>
+            
+            <pre>docker push myrepo/app:${{ github.sha }}</pre>
+
+            <p><strong>Result:</strong> Every deployment guarantees the extraction of the exact, updated code. Rollbacks are now deterministic and secure.</p>
+        </div>
+
+        <div class="section">
+            <h2>5. Conclusion &amp; DevOps Competencies</h2>
+
+            <h3>5.1 Acquired Competencies</h3>
+            <p>This project serves as a practical demonstration of my deep understanding of modern Cloud-Native architectures:</p>
+            <ul>
+                <li><strong>DevSecOps:</strong> Code validation, SAST, Vulnerability Scans, and Rate-Limiting mechanisms.</li>
+                <li><strong>Orchestration:</strong> Kubernetes Deployments, Services, StatefulSets, Secrets, and RBAC.</li>
+                <li><strong>CI/CD:</strong> GitHub Actions workflows, automated testing, and Zero-Downtime deployments.</li>
+                <li><strong>Infrastructure as Code:</strong> Ansible Playbooks and idempotent automation principles.</li>
+            </ul>
+
+            <h3>5.2 Deployment Readiness</h3>
+            <p>Infinity-Pipeline is <strong>production-ready for demonstration purposes</strong>. To deploy the system onto physical cloud servers, only the IP addresses in the <code>ansible/inventory.ini</code> file need to be updated prior to executing the Ansible playbooks.</p>
+
+            <div class="highlight-box">
+                <strong>Project Statistics:</strong><br>
+                Timeline: March – May 2026<br>
+                Git Commits: 31<br>
+                Lines of Code: ~2000+ (Ansible YAML, Python, Kubernetes Manifests)<br>
+                Repository: github.com/MehmetMagden/infinity-pipeline
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Infinity-Pipeline Detailed Project Portfolio | Mehmet Magden | May 2026</p>
+            <p>Email: mehmetmagden.it@gmail.com | Phone: +41 76 680 00 53</p>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Print formatting enhancement
+        window.addEventListener('beforeprint', function() {
+            document.body.style.backgroundColor = '#ffffff';
+        });
+    </script>
+</body>
+</html>
